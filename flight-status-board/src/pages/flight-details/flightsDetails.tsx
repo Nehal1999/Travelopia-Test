@@ -28,7 +28,7 @@ const FlightDetails = ()=>{
 
     return (
         <>
-        {!loading ? <table className="table table-hover table-light" style={{marginTop: '80px'}}>
+        {(!loading && data) ? <table className="table table-hover table-light" style={{marginTop: '80px'}}>
         <thead>
             <tr>
             <th>Flights</th>
