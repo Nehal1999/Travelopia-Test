@@ -8,7 +8,7 @@ import './flightInfo.css'
 
 const FlightInfo = () =>{
     const { id } = useParams();
-    const {data, getData,loading} = useFetch();
+    const {data, getData,loading,error} = useFetch();
     useEffect(()=>{
         getData(FLIGHT_DETAILS+`/${id}`)
     },[])
@@ -21,8 +21,9 @@ const FlightInfo = () =>{
         <div className="container img-style">
         <img src={airlineImg}/>
         </div>
-        
-        {(!loading && data) ? 
+        {error && <p>Error : {error}</p>}
+        { loading && <Loading/>}
+        {data &&  
         <div className="card">
         <div className="card-header">
             <strong>Flight Number : {data.flightNumber}</strong>
@@ -50,8 +51,7 @@ const FlightInfo = () =>{
 					</tbody>
 				</table>
         </div>
-        </div> : 
-        <Loading/>}
+        </div>}
         </>
     )
 }
