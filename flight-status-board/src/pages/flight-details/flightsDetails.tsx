@@ -3,6 +3,7 @@ import useFetch from "../../hooks/useFetch";
 import { FLIGHT_DETAILS } from "../../api/API_CONSTANTS";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../components/loading-component/loading";
+import ErrorComponent from "../../components/error-alert/ErrorComponent";
 const FlightDetails = ()=>{
     const {getData,data,loading,error} = useFetch();
     const navigate = useNavigate();
@@ -28,7 +29,7 @@ const FlightDetails = ()=>{
 
     return (
         <>
-        {error && <p>Error : {error}</p>}
+        {error && <ErrorComponent errMessage={error}/>}
         {loading && <Loading/>}
         {data && <table className="table table-hover table-light" style={{marginTop: '80px'}}>
         <thead>

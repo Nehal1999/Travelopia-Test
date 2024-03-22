@@ -5,6 +5,7 @@ import { FLIGHT_DETAILS } from "../../api/API_CONSTANTS";
 import Loading from "../../components/loading-component/loading";
 import airlineImg from '../../assets/images/airline.jpeg';
 import './flightInfo.css'
+import ErrorComponent from "../../components/error-alert/ErrorComponent";
 
 const FlightInfo = () =>{
     const { id } = useParams();
@@ -21,7 +22,7 @@ const FlightInfo = () =>{
         <div className="container img-style">
         <img src={airlineImg}/>
         </div>
-        {error && <p>Error : {error}</p>}
+        {error && <ErrorComponent errMessage={error}/>}
         { loading && <Loading/>}
         {data &&  
         <div className="card">
