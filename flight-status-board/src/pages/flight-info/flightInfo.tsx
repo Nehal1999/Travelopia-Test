@@ -22,7 +22,7 @@ const FlightInfo = () =>{
         <img src={airlineImg}/>
         </div>
         
-        {!loading ? 
+        {(!loading && data) ? 
         <div className="card">
         <div className="card-header">
             <strong>Flight Number : {data.flightNumber}</strong>
